@@ -21,7 +21,7 @@ pub fn data_storage_directory(data_dir: Option<PathBuf>) -> PathBuf {
     } else {
         let base_path = if let Some(users_dir) = UserDirs::new() {
             users_dir
-                .document_dir()
+                .desktop_dir()
                 .unwrap_or_else(|| users_dir.home_dir())
                 .to_path_buf()
         } else {
