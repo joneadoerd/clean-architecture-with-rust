@@ -1,8 +1,9 @@
 [package]
 name = "clean-architecture-with-rust"
-version = "0.0.0"
-authors = ["Markus Kohlhase <markus.kohlhase@slowtec.de>"]
-edition = "2021"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
 publish = false
 
 [[bin]]
@@ -23,29 +24,39 @@ members = [
   "crates/application",
   "crates/cli",
   "crates/db",
-  "crates/desktop",
+  "crates/desktop-egui",
   "crates/domain",
   "crates/infrastructure",
   "crates/json-boundary",
   "crates/web-app-api",
-  "crates/web-server"
+  "crates/web-app-kern",
+  "crates/web-app-seed",
+  "crates/web-server-warp"
 ]
-exclude = [ "crates/web-app-seed" ]
+exclude = [ "crates/web-app" ]
+
+[workspace.package]
+authors = ["Markus Kohlhase <markus.kohlhase@slowtec.de>"]
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.79"
 
 [dependencies]
 cawr-infrastructure = "0.0.0"
 
 [patch.crates-io]
-cawr-adapter        = { path = "crates/adapter"        }
-cawr-application    = { path = "crates/application"    }
-cawr-cli            = { path = "crates/cli"            }
-cawr-db             = { path = "crates/db"             }
-cawr-desktop        = { path = "crates/desktop"        }
-cawr-domain         = { path = "crates/domain"         }
-cawr-infrastructure = { path = "crates/infrastructure" }
-cawr-json-boundary  = { path = "crates/json-boundary"  }
-cawr-web-app-api    = { path = "crates/web-app-api"    }
-cawr-web-server     = { path = "crates/web-server"     }
+cawr-adapter         = { path = "crates/adapter"         }
+cawr-application     = { path = "crates/application"     }
+cawr-cli             = { path = "crates/cli"             }
+cawr-db              = { path = "crates/db"              }
+cawr-desktop-egui    = { path = "crates/desktop-egui"    }
+cawr-domain          = { path = "crates/domain"          }
+cawr-infrastructure  = { path = "crates/infrastructure"  }
+cawr-json-boundary   = { path = "crates/json-boundary"   }
+cawr-web-app-api     = { path = "crates/web-app-api"     }
+cawr-web-app-kern    = { path = "crates/web-app-kern"    }
+cawr-web-app-seed    = { path = "crates/web-app-seed"    }
+cawr-web-server-warp = { path = "crates/web-server-warp" }
 
 [profile.release]
 lto = true

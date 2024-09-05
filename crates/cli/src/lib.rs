@@ -1,6 +1,8 @@
-use cawr_adapter::{api::Api, db::Db, presenter::cli::Presenter};
-use clap::Subcommand;
 use std::{collections::HashSet, sync::Arc};
+
+use clap::Subcommand;
+
+use cawr_adapter::{api::Api, db::Db, presenter::cli::Presenter};
 
 #[derive(Subcommand)]
 pub enum Command {
@@ -14,7 +16,7 @@ pub fn run<D>(db: Arc<D>, cmd: Command)
 where
     D: Db,
 {
-    let app_api = Api::new(db, Presenter::default());
+    let app_api = Api::new(db, Presenter);
 
     match cmd {
         Command::Create { title } => {

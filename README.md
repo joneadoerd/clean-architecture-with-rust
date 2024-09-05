@@ -16,11 +16,13 @@ Currently there are these circles:
 - `infrastructure`
   - `cli`
   - `db`
-  - `desktop`
+  - `desktop-egui`
   - `web`
-    - `web-app-api`
-    - `web-app-seed`
-    - `web-server`
+    - `web-app`
+      - `web-app-api`
+      - `web-app-kern`
+      - `web-app-seed`
+    - `web-server-warp`
 
 Depending on your system the amount and the name of circles could
 be different but the main **dependency rule** must be ensured:
@@ -34,10 +36,27 @@ that means
 
 ## Build & run
 
+First install [just](https://just.systems/):
+
 ```
 cargo install just
-just setup
+```
+
+Then you can run
+
+```
 just run-web
+```
+or
+
+```
+just run-desktop
+```
+
+or
+
+```
+just run-cli
 ```
 
 ## Example Szenario
